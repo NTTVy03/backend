@@ -1,0 +1,12 @@
+@root = http://localhost:8080
+
+### get root
+GET {{root}}
+
+### post echo
+POST {{root}}/echo
+
+fill_body_here
+
+### get hey
+GET {{root}}/hey
