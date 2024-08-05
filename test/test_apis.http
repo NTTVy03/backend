@@ -1,4 +1,26 @@
-@root = http://localhost:8080
+@root = http://localhost:8080/todos
+@item-update = a003f6ab-fb91-43ed-8a4d-5d44910c5863
+@item-delete = a003f6ab-fb91-43ed-8a4d-5d44910c5863
 
-### counter
+### get all todo items
 GET {{root}}
+
+### create an todo item
+POST {{root}}
+Content-Type: application/json
+
+{
+    "title": "todo 2",
+    "completed": false
+}
+
+### update an todo item
+PUT {{root}}/{{item-update}}
+Content-Type: application/json
+
+{
+    "title": "test update todo item"
+}
+
+### delete an todo item
+DELETE {{root}}/{{item-delete}}
