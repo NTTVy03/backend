@@ -1,26 +1,11 @@
 use actix_web::{web, HttpResponse, Responder};
 use chrono::Utc;
-use serde::Deserialize;
 use uuid::Uuid;
 
 use super::AppState;
-use crate::models::TodoItem;
+use crate::models::{CreateTodoItem, TodoItem, UpdateTodoItem};
 
-#[derive(Deserialize)]
-pub struct CreateTodoItem {
-    title: String,
-    completed: bool,
-}
-
-#[derive(Deserialize)]
-pub struct UpdateTodoItem {
-    title: Option<String>,
-    completed: Option<bool>,
-}
-
-pub async fn get_todos(
-    data: web::Data<AppState>
-) -> impl Responder {
+pub async fn get_todos(data: web::Data<AppState>) -> impl Responder {
     let todos = data.todo_list.lock().unwrap();
     HttpResponse::Ok().json(&*todos)
 }
@@ -65,10 +50,7 @@ pub async fn update_todo(
     }
 }
 
-pub async fn delete_todo(
-    path: web::Path<Uuid>, 
-    data: web::Data<AppState>
-) -> impl Responder {
+pub async fn delete_todo(path: web::Path<Uuid>, data: web::Data<AppState>) -> impl Responder {
     let mut todos = data.todo_list.lock().unwrap();
 
     if let Some(index) = todos.iter().position(|todo| todo.id == *path) {
