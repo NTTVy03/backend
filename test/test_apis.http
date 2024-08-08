@@ -1,4 +1,4 @@
-@root = http://localhost:8080/todos
+@root = http://localhost:5603/todos
 @item-update = 5ca93e60-c3ad-409f-9336-9bef738e74bf
 @item-delete = a003f6ab-fb91-43ed-8a4d-5d44910c5863
 
