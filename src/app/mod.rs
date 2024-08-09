@@ -28,7 +28,7 @@ pub async fn start() {
             .configure(routes)
 
     })
-    .bind("127.0.0.1:5603")
+    .bind("0.0.0.0:8088")
     .unwrap_or_else(|_| panic!("Can not bind server to address"))
     .run()
     .await
