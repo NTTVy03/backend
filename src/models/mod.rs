@@ -1,3 +1,1 @@
-mod todo;
-
-pub use self::todo::*;
+pub mod todo;
