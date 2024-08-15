@@ -66,7 +66,15 @@ my_project/
     * Replace migration directory with a relative path
 
 ## 3. How to run
+### How to run
 ```
 cd rust-todo/backend
 cargo run
 ```
+
+### Build release
+```
+cd backend
+chmod +x build.sh
+```
+Result in: `rust-todo/backend/target/debug/backend`
